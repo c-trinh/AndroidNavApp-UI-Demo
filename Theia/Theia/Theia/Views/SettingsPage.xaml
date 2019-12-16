@@ -1,0 +1,64 @@
+﻿
+<ContentPage
+    x:Class="Theia.Views.SettingsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Settings"
+    mc:Ignorable="d">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Clicked="Save_Clicked" Text="Save" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <TableView Intent="Settings">
+                <TableRoot>
+                    <TableSection>
+                        <EntryCell
+                            x:Name="NameEntry"
+                            Keyboard="Text"
+                            Label="Name"
+                            Text="{Binding Name}" />
+                        <EntryCell
+                            x:Name="StepEntry"
+                            Keyboard="Numeric"
+                            Label="Step Length"
+                            Text="{Binding StepLength}" />
+                        <EntryCell
+                            x:Name="Building"
+                            Keyboard="Text"
+                            Label="Building"
+                            Text="{Binding Building}" />
+                        <EntryCell
+                            x:Name="StartEntry"
+                            Keyboard="Text"
+                            Label="Start Location"
+                            Text="{Binding StartLocation}" />
+                        <EntryCell
+                            x:Name="EndEntry"
+                            Keyboard="Text"
+                            Label="End Location"
+                            Text="{Binding EndLocation}" />
+                        <EntryCell
+                            x:Name="ContactEntry"
+                            Keyboard="Numeric"
+                            Label="Emergency Contact"
+                            Text="{Binding EmergencyContact}" />
+                    </TableSection>
+                </TableRoot>
+            </TableView>
+            <Label
+                HorizontalOptions="Center"
+                Text="Volume"
+                VerticalOptions="CenterAndExpand" />
+            <Slider
+                Maximum="10"
+                MaximumTrackColor="LightBlue"
+                Minimum="0"
+                MinimumTrackColor="Blue"
+                Value="{Binding VoiceVolume}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

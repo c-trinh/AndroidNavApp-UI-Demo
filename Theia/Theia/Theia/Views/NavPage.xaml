@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Theia.Views.NavPageContent"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Clicked="Emergency_Call_Clicked" Text="Dial Emergency Contact" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label
+                HorizontalOptions="CenterAndExpand"
+                Text="Welcome to Theia!"
+                VerticalOptions="CenterAndExpand" />
+            <!--  The imagesource gets bound to a property in the navigationViewModel  -->
+            <Image
+                x:Name="img_idle"
+                HeightRequest="200"
+                IsVisible="True"
+                Source="{Binding NavigationImageSource}"
+                TranslationY="-130"
+                WidthRequest="200" />
+
+
+            <StackLayout Orientation="Horizontal">
+                <!--  The button executes the UpdateArrowCommand  -->
+                <Button
+                    x:Name="StartNavButton"
+                    BackgroundColor="Green"
+                    TextColor="White"
+                    BorderColor="Black"
+                    HeightRequest="177"
+                    WidthRequest="177"
+                    HorizontalOptions="Center"
+                    Command="{Binding RunNavigationTimer}"
+                    CommandParameter="1"
+                    Text="Start" />
+                <Button
+                    x:Name="StopNavButton"
+                    BackgroundColor="Red"
+                    TextColor="White"
+                    BorderColor="Black"
+                    HeightRequest="177"
+                    WidthRequest="177"
+                    HorizontalOptions="Center"
+                    Command="{Binding StopNavigationTimer}"
+                    Text="Stop" />
+            </StackLayout>
+
+
+        </StackLayout>
+
+
+    </ContentPage.Content>
+</ContentPage>
